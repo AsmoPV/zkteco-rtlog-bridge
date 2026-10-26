@@ -1,0 +1,36 @@
+name: ZKTeco C3 RTLog Bridge
+version: "1.0.5"
+slug: zkteco_rtlog_bridge
+description: Read-only MQTT bridge for ZKTeco C3 access events
+url: https://github.com/vwout/zkaccess-c3-py
+arch:
+  - amd64
+startup: application
+boot: auto
+init: true
+legacy: true
+host_network: true
+services:
+  - mqtt:need
+options:
+  DEVICE_IP: 192.0.2.10
+  DEVICE_PORT: 4370
+  DEVICE_PASSWORD: ""
+  MQTT_HOST: core-mosquitto
+  MQTT_PORT: 1883
+  MQTT_USERNAME: ""
+  MQTT_PASSWORD: ""
+  MQTT_TOPIC: zkteco/c3-400/tag/last
+  POLLING_INTERVAL_SECONDS: 2
+  TIME_ZONE: Europe/Prague
+schema:
+  DEVICE_IP: str
+  DEVICE_PORT: port
+  DEVICE_PASSWORD: password?
+  MQTT_HOST: str
+  MQTT_PORT: port
+  MQTT_USERNAME: str?
+  MQTT_PASSWORD: password?
+  MQTT_TOPIC: str
+  POLLING_INTERVAL_SECONDS: int
+  TIME_ZONE: str
